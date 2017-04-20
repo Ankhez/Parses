@@ -78,7 +78,6 @@ class Matches(MyParse):
 if __name__ == '__main__':
     pass
 
-for element in Matches.parsewithpagination():
-    print element
+
 
 
