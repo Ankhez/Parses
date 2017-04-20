@@ -1,9 +1,21 @@
 # -*- coding:utf-8 -*-
 import requests, datetime
-from lxml import html, etree
+from lxml import html
 
 
 class MyParse(object):
+
+
+    @staticmethod
+    def checkthepagination(filename, url, **kwargs):
+        r = requests.post(url, data = kwargs)
+        with open(filename, 'w') as output_file:
+            output_file.write(r.text.encode('utf-8'))
+
+        with open(filename, 'r+') as f:
+            lines = f.readlines()
+            f.seek(0)
+            f.writelines(['<meta http-equiv="Content-Type" content="text/html;charset=utf-8">'] + lines)
 
 #update parse file if we need
     @staticmethod
